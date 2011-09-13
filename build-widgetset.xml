@@ -44,8 +44,8 @@ See configure target to adjust this buildfile.
 			      value="${base}src" />
 
 		<!-- Target where to compile server-side classes -->
-		<property name="server-side-destination" 
-			      value="${base}WebContent/WEB-INF/classes"/>
+		<property name="server-side-destination"
+			      value="${base}build/classes"/>
 		
 		<!-- Target where to compile the widget set -->
 		<property name="client-side-destination" 

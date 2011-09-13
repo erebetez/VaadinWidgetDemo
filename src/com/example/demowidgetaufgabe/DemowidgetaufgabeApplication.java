@@ -3,6 +3,7 @@ package com.example.demowidgetaufgabe;
 import com.vaadin.Application;
 import com.vaadin.ui.Window;
 
+
 /**
  * The Application's "main" class
  */
@@ -16,7 +17,9 @@ public class DemowidgetaufgabeApplication extends Application
     {
         window = new Window("Widget Test");
         setMainWindow(window);
+
+        // Mein eigenes Widget verwenden
         window.addComponent(new MyComponent());
     }
-    
+
 }

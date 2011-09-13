@@ -17,6 +17,10 @@ public class MyComponent extends AbstractComponent {
     public void paintContent(PaintTarget target) throws PaintException {
         super.paintContent(target);
         
+        // Um dem Widget auf der Clientsite etwas mitzuteilen,
+        // kann eine variable definiert werden.
+        // Hier wird eine Text unter dem Namen "labeltext" für das clientwidget
+        // abgelegt.
         target.addVariable(this, "labeltext", "Das ist der neue Text.");
         
         // TODO Paint any component specific content by setting attributes

@@ -29,13 +29,6 @@ public class VMyComponent extends Composite implements Paintable {
     
     private Button myButton = new Button("Add");
     private Label label = new Label("init-text");
-
-//    private Canvas myCanvas;
-//    private Context2d context;
-//    private Ball ball;
-
-    
-//    private DrawingArea canvas = null;
     
     /**
      * The constructor should first call super() to initialize the component and
@@ -46,22 +39,10 @@ public class VMyComponent extends Composite implements Paintable {
 		
 		initWidget(panel);
 		
-//		myCanvas.createIfSupported();
-//	    if (myCanvas == null) {
-//	    	panel.add(new Label("Nicht gut! Canvas nicht unterstützt."));
-//	        return;
-//	    }
-//
-//		myCanvas.setWidth("200px");
-//		myCanvas.setHeight("200px");
-//		
-//		panel.add(myCanvas);
 		panel.add(myButton);
 		panel.add(label);
 	
 		setStyleName(CLASSNAME);
-
-//		DOM.setStyleAttribute(canvas.getElement(), "border", "1px solid black");
     }
 
     /**
@@ -86,20 +67,10 @@ public class VMyComponent extends Composite implements Paintable {
         // TODO replace dummy code with actual component logic
 //        getElement().setInnerHTML("It works!");
         myButton.setText("UIDL update");
+        
+        // Hier holt man den wert von "labeltext" welches auf dem server gesetzt wurde.
         label.setText(uidl.getStringVariable("labeltext"));
 
-// 		context = myCanvas.getContext2d();   
-// 	    context.setFillStyle("cc33aa");
-// 	    context.beginPath();
-// 	    context.arc(100, 100, 30, 0, Math.PI * 2.0, true);
-// 	    context.closePath();
-// 	    context.fill();
-// 		
-// 		
-// 		ball = new Ball(50, 200, 20, 30, "cccccc");
-//		
-// 		ball.draw(context);
- 		   
     }
 
 }

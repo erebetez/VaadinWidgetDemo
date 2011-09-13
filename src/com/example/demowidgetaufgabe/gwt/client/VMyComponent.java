@@ -1,4 +1,4 @@
-package example.erebetez.gwt.client;
+package com.example.demowidgetaufgabe.gwt.client;
 
 import com.vaadin.terminal.gwt.client.ApplicationConnection;
 import com.vaadin.terminal.gwt.client.Paintable;

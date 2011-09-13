@@ -1,6 +1,6 @@
 package com.example.demowidgetaufgabe;
 
-import example.erebetez.gwt.client.VMyComponent;
+import com.example.demowidgetaufgabe.gwt.client.VMyComponent;
 
 import com.vaadin.terminal.PaintException;
 import com.vaadin.terminal.PaintTarget;

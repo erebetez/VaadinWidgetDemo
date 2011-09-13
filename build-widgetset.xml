@@ -41,7 +41,7 @@ See configure target to adjust this buildfile.
 		
 		<!-- Location of project source code -->
 		<property name="src-location" 
-			      value="${base}WebContent/WEB-INF/src" />
+			      value="${base}src" />
 
 		<!-- Target where to compile server-side classes -->
 		<property name="server-side-destination" 
@@ -57,7 +57,7 @@ See configure target to adjust this buildfile.
         <echo>Modify this example Ant script to compile your own widget sets.</echo>
 
         <!-- Name of the widget set -->
-        <property name="widgetset" value="example.erebetez.gwt.MyWidgetSet"/>
+        <property name="widgetset" value="com.example.demowidgetaufgabe.gwt.MyWidgetSet"/>
 
         <!-- If generated automatically as a combining widget set -->
         <!-- from all the widget sets included in the class path. -->
@@ -67,7 +67,7 @@ See configure target to adjust this buildfile.
         <!-- Path to the generated widget set directory. Must be  --> 
     	<!-- relative to $src-location, which must be the first   --> 
     	<!-- entry in the class path.                             --> 
-        <property name="widgetset-path" value="example/erebetez/gwt/client"/>
+        <property name="widgetset-path" value="com/example/demowidgetaufgabe/gwt/client"/>
     </target>
 
     <!-- Modify this configuration to package your own widgetset Jar. -->

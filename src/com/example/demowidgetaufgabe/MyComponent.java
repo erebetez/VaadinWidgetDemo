@@ -26,5 +26,4 @@ public class MyComponent extends AbstractComponent {
         // TODO Paint any component specific content by setting attributes
         // These attributes can be read in updateFromUIDL in the widget.
     }
-
 }

@@ -20,9 +20,7 @@ public class Ball extends AbstractComponent {
         super.paintContent(target);
 
         target.addVariable(this, "radius", getRadius());
-        
-        // TODO Paint any component specific content by setting attributes
-        // These attributes can be read in updateFromUIDL in the widget.
+
     }
     
     public void setRadius(int radius){    	

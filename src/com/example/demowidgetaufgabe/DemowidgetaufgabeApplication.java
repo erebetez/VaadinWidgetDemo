@@ -17,7 +17,7 @@ public class DemowidgetaufgabeApplication extends Application implements Propert
 {
     private Window window;
     private Slider slider = null;
-    private Label label = new Label("Hallo. Ändere grösse des Balls");
+    private Label label = new Label("Hallo. Ändere grösse des Balls.");
     
     private Ball myBall = new Ball();
 
@@ -39,10 +39,9 @@ public class DemowidgetaufgabeApplication extends Application implements Propert
     
     private Slider getSlider(){
     	if( slider == null){
-    		slider = new Slider("Radius");		
+    		slider = new Slider("Radius", 0, 200);	
     		slider.addListener( this );
     		slider.setImmediate(true);
-    		slider.setMax(200);
     		slider.setWidth("200px");
     	}
     	return slider;
@@ -50,15 +49,10 @@ public class DemowidgetaufgabeApplication extends Application implements Propert
 
 
 	public void valueChange(ValueChangeEvent event) {
-		// TODO Auto-generated method stub
-		
-//		label.setCaption(slider.getValue().toString());
 		
 		Double d = new Double(slider.getValue().toString());
 		myBall.setRadius(d.intValue());
 		
 	}
     
-    
-
 }

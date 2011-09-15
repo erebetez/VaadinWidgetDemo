@@ -36,7 +36,7 @@ public class VBall extends Composite implements Paintable {
 		
 		canvas = new DrawingArea(400, 400);
 		
-		circle = new Circle(200,200, 20);
+		circle = new Circle(200,200, 50);
 		circle.setFillColor("red");
 		
 		canvas.add(circle);		
@@ -65,19 +65,11 @@ public class VBall extends Composite implements Paintable {
         // Save the client side identifier (paintable id) for the widget
         paintableId = uidl.getId();
         
-        // TODO replace dummy code with actual component logic
 
         Double d = new Double(uidl.getStringVariable("radius"));
         
-        circle.setRadius(d.intValue());
-        
-        // Hier holt man den wert von "labeltext" welches auf dem server gesetzt wurde.
-//        label.setText(uidl.getStringVariable("labeltext"));
-        
-        
+        circle.setRadius(d.intValue());  
 
     }
-    
-
 
 }

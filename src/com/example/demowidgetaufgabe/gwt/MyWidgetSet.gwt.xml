@@ -10,7 +10,7 @@
 	<inherits name="com.vaadin.terminal.gwt.DefaultWidgetSet" /> 
 	
 	<!-- Inherit graphics widgets -->
-<!-- 	<inherits name='org.vaadin.gwtgraphics.GWTGraphics'/> -->
+ 	<inherits name='org.vaadin.gwtgraphics.GWTGraphics'/> 
 	
 	<!-- Widgetset default theme -->
 	<!-- This is relative to widgetset_directory/public -->	

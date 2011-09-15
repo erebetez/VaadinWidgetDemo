@@ -4,11 +4,13 @@ import com.vaadin.terminal.gwt.client.ApplicationConnection;
 import com.vaadin.terminal.gwt.client.Paintable;
 import com.vaadin.terminal.gwt.client.UIDL;
 import com.google.gwt.user.client.ui.AbsolutePanel;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Label;
 
-public class VMyComponent extends Composite implements Paintable {
+import org.vaadin.gwtgraphics.client.DrawingArea;
+import org.vaadin.gwtgraphics.client.shape.Circle;
+
+
+public class VBall extends Composite implements Paintable {
 
     /** Set the CSS class name to allow styling. */
     public static final String CLASSNAME = "v-mycomponent";
@@ -21,17 +23,25 @@ public class VMyComponent extends Composite implements Paintable {
 
     private AbsolutePanel panel = null;
     
-    private Label label = new Label("init-text");
+    private DrawingArea canvas = null;
+    private Circle circle = null;
     
     /**
      * The constructor should first call super() to initialize the component and
      * then handle any initialization relevant to Vaadin.
      */
-    public VMyComponent() {
+    public VBall() {
 		panel = new AbsolutePanel();
 		initWidget(panel);
 		
-		panel.add(label);
+		canvas = new DrawingArea(400, 400);
+		
+		circle = new Circle(200,200, 20);
+		circle.setFillColor("red");
+		
+		canvas.add(circle);		
+		
+		panel.add(canvas);
 	
 		setStyleName(CLASSNAME);
     }
@@ -55,9 +65,19 @@ public class VMyComponent extends Composite implements Paintable {
         // Save the client side identifier (paintable id) for the widget
         paintableId = uidl.getId();
         
-        // Hier holt man den wert von "labeltext" welches auf dem server gesetzt wurde.
-        label.setText(uidl.getStringVariable("labeltext"));
+        // TODO replace dummy code with actual component logic
+
+        Double d = new Double(uidl.getStringVariable("radius"));
         
+        circle.setRadius(d.intValue());
+        
+        // Hier holt man den wert von "labeltext" welches auf dem server gesetzt wurde.
+//        label.setText(uidl.getStringVariable("labeltext"));
+        
+        
+
     }
+    
+
 
 }

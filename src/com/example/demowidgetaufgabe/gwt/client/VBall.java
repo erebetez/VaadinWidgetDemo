@@ -3,10 +3,17 @@ package com.example.demowidgetaufgabe.gwt.client;
 import com.vaadin.terminal.gwt.client.ApplicationConnection;
 import com.vaadin.terminal.gwt.client.Paintable;
 import com.vaadin.terminal.gwt.client.UIDL;
+import com.google.gwt.event.dom.client.MouseDownEvent;
+import com.google.gwt.event.dom.client.MouseDownHandler;
+import com.google.gwt.event.dom.client.MouseMoveEvent;
+import com.google.gwt.event.dom.client.MouseMoveHandler;
+import com.google.gwt.event.dom.client.MouseUpEvent;
+import com.google.gwt.event.dom.client.MouseUpHandler;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Composite;
 
 import org.vaadin.gwtgraphics.client.DrawingArea;
+import org.vaadin.gwtgraphics.client.animation.Animate;
 import org.vaadin.gwtgraphics.client.shape.Circle;
 
 
@@ -26,6 +33,8 @@ public class VBall extends Composite implements Paintable {
     private DrawingArea canvas = null;
     private Circle circle = null;
     
+    private boolean follow = false;
+    
     /**
      * The constructor should first call super() to initialize the component and
      * then handle any initialization relevant to Vaadin.
@@ -35,14 +44,34 @@ public class VBall extends Composite implements Paintable {
 		initWidget(panel);
 		
 		canvas = new DrawingArea(400, 400);
+		panel.add(canvas);
 		
-		circle = new Circle(200,200, 50);
+		canvas.addMouseMoveHandler(new MouseMoveHandler() {
+			  public void onMouseMove(MouseMoveEvent event) {
+				if (follow){ 
+				    circle.setX(event.getX());
+				    circle.setY(event.getY());
+				}
+			  }
+		});
+		
+		canvas.addMouseDownHandler( new MouseDownHandler() {
+			public void onMouseDown(MouseDownEvent event) {
+				follow = true;				
+			}
+		});
+		
+		canvas.addMouseUpHandler( new MouseUpHandler(){
+			public void onMouseUp(MouseUpEvent event) {
+				follow = false;	
+			}
+		});
+
+		circle = new Circle(200,200, 0);
 		circle.setFillColor("red");
 		
-		canvas.add(circle);		
-		
-		panel.add(canvas);
-	
+		canvas.add(circle);
+
 		setStyleName(CLASSNAME);
     }
 
@@ -68,8 +97,14 @@ public class VBall extends Composite implements Paintable {
 
         Double d = new Double(uidl.getStringVariable("radius"));
         
-        circle.setRadius(d.intValue());  
+        new Animate(circle, "radius", circle.getRadius(), d.intValue(), 500).start();
 
     }
+    
+    private void calculateNewRadius(){
+    	
+    }
+    
+    
 
 }

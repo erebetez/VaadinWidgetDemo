@@ -22,7 +22,7 @@ See configure target to adjust this buildfile.
 		Update based on your project structure, by default this buildfile assumes that you 
 		1. use WebContent under your project's root directory
 		2. WebContent/WEB-INF/lib/vaadin-6.6.4.jar exists
-		3. WebContent/WEB-INF/src contains your project source files
+		3. /src contains your project source files
 		4. gwt directory contains extracted GWT distribution
 	-->
 	<target name="configure">

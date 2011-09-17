@@ -21,7 +21,7 @@ public class MyComponent extends AbstractComponent {
         // kann eine variable definiert werden.
         // Hier wird eine Text unter dem Namen "labeltext" für das clientwidget
         // abgelegt.
-        target.addVariable(this, "labeltext", "Das ist der neue Text.");
+        target.addVariable(this, "labeltext", "Das ist der neue Text. Dieser wurde mir von Server mittgeteilt.");
         
         // TODO Paint any component specific content by setting attributes
         // These attributes can be read in updateFromUIDL in the widget.

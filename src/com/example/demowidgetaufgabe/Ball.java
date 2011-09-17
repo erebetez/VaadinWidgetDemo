@@ -1,5 +1,7 @@
 package com.example.demowidgetaufgabe;
 
+import java.util.Map;
+
 import com.example.demowidgetaufgabe.gwt.client.VBall;
 
 import com.vaadin.terminal.PaintException;
@@ -13,7 +15,7 @@ import com.vaadin.ui.ClientWidget;
 @ClientWidget(VBall.class)
 public class Ball extends AbstractComponent {
 
-	private int radius = 20;
+	private int radius = 50;
 	
     @Override
     public void paintContent(PaintTarget target) throws PaintException {
@@ -32,5 +34,4 @@ public class Ball extends AbstractComponent {
     	return this.radius;
     }
     
-
 }

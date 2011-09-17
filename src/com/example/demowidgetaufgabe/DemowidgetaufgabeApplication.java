@@ -3,8 +3,9 @@ package com.example.demowidgetaufgabe;
 import com.vaadin.Application;
 import com.vaadin.data.Property;
 import com.vaadin.data.Property.ValueChangeEvent;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.Slider;
+import com.vaadin.ui.Slider.ValueOutOfBoundsException;
+import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
@@ -17,9 +18,10 @@ public class DemowidgetaufgabeApplication extends Application implements Propert
 {
     private Window window;
     private Slider slider = null;
-    private Label label = new Label("Hallo. Ändere grösse des Balls.");
     
     private Ball myBall = new Ball();
+    
+    private final String appWidth = "400px";
 
     @Override
     public void init()
@@ -30,19 +32,39 @@ public class DemowidgetaufgabeApplication extends Application implements Propert
 
         window.addComponent(layout);
         
+        StringBuffer tip = new StringBuffer();
+        tip.append("Das ist ein selbsterstelltes Clientseitiges Widget. \n");
+        tip.append("Es verwendet die gwt-graphics klassen. \n");
+        tip.append("Ändere grösse des Balls mit dem Slider. \n");
+        tip.append("Mit der Maus kann der Ball verschoben werden.");
+        
+        TextArea area = new TextArea();
+        area.setWidth(appWidth);
+        area.setValue(tip);
+        area.setReadOnly(true);
+        
+        layout.addComponent(area);
         layout.addComponent(myBall);
         layout.addComponent(getSlider());
-        layout.addComponent(label);
+        
+        
+        // als extra kommt hier noch unser kleines Beispiel Widget rein.
         layout.addComponent(new MyComponent());
     }
     
     
     private Slider getSlider(){
     	if( slider == null){
-    		slider = new Slider("Radius", 0, 200);	
+    		slider = new Slider("Radius", 0, 200);
+    		try {
+				slider.setValue(50);
+			} catch (ValueOutOfBoundsException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     		slider.addListener( this );
     		slider.setImmediate(true);
-    		slider.setWidth("200px");
+    		slider.setWidth(appWidth);
     	}
     	return slider;
     }
